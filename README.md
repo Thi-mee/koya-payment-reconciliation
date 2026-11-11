@@ -4,6 +4,15 @@
 
 Fix it, in Python (`reconcile.py`) or JavaScript (`reconcile.js`), whichever you prefer. When it's right, it prints a code. Paste that code into the application form.
 
+## Run the fixed Python version
+
+From this repository's directory, run `python3 reconcile.py`. It uses only the
+Python standard library. Run the regression tests with `python3 -m unittest -v`.
+
+The Python script skips unreadable lines and missing transaction IDs, selects
+each transaction's latest timestamp before checking its status, and sums amounts
+with decimal arithmetic, including amounts formatted with thousands separators.
+
 ## How the data works
 
 - Each line is one event: `txn_id`, `status` (`success`, `failed` or `pending`), `amount` in naira, `currency`, and `ts` (when it happened, UTC).
